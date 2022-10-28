@@ -49,5 +49,5 @@ router.get('/', (req: Request, res: Response) => {
     return res.status(200).send(user);
 })
 
-
 export { router as UserRouter };
+

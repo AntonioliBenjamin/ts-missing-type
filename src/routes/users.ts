@@ -1,16 +1,26 @@
-import { Router } from 'express';
-
+import { Router, Request, Response } from 'express';
 export const router = Router();
 
 
 // convert into enum.
-const Role = {
-    ACTOR: 'actor',
-    SPECTATOR: 'spectator'
+enum Role {
+    ACTOR = 'actor',
+    SPECTATOR = 'spectator'
 }
 
+type User = {
+    id : string;
+    firstname: string;
+    lastname: string;
+    age: number;
+    birthDate: Date;
+    favoritesFood: string[];
+    role: Role.ACTOR;
+    friends: Object[];
+
+}
 // build a type for user.
-const user = {
+const user: User = {
     id: 'rryrryyryryrr',
     firstname: "hello",
     lastname: "world",
@@ -35,7 +45,7 @@ const user = {
 }
 
 // type req and res.
-router.get('/', (req, res) => {
+router.get('/', (req: Request, res: Response) => {
     return res.status(200).send(user);
 })
 

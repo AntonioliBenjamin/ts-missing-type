@@ -6,7 +6,7 @@ import { UserRouter } from './routes/users';
 const port = +process.env.PORT;
 
 // Type the app const.
-const app = express();
+const app: express.Application = express();
 
 app.use('/user', UserRouter);
 
